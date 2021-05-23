@@ -1,3 +1,7 @@
 :host {
 	position: relative;
+	width: 120vw;
+	height: 120vh;
+	left: -10vw;
+	top: -10vh;
 }

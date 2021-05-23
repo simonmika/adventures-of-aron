@@ -1,4 +1,4 @@
-import { Component, h, Host, Listen, State } from "@stencil/core"
+import { Component, h, Listen, State } from "@stencil/core"
 import { Direction, Game, Position } from "../../model"
 
 @Component({
@@ -8,9 +8,8 @@ import { Direction, Game, Position } from "../../model"
 })
 export class AronGame {
 	@State() game: Game = Game.create()
-	@Listen("keydown")
+	@Listen("keydown", { target: "window" })
 	onKeyDown(event: KeyboardEvent) {
-		console.log(event.key)
 		let direction: Direction | undefined
 		switch (event.key) {
 			case "ArrowLeft":
@@ -31,11 +30,9 @@ export class AronGame {
 	}
 	render() {
 		console.log("game", this.game)
-		return (
-			<Host tabIndex={0}>
-				<aron-map map={this.game.map} offset={new Position(0, 0)}></aron-map>
-				<aron-hero hero={this.game.hero}></aron-hero>
-			</Host>
-		)
+		return [
+			<aron-map map={this.game.map} offset={new Position(0, 0)}></aron-map>,
+			<aron-hero hero={this.game.hero}></aron-hero>,
+		]
 	}
 }

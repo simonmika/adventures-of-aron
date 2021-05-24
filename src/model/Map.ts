@@ -1,4 +1,4 @@
-import { Position } from "./Position"
+import { Point } from "./Point"
 import * as Tile from "./Tile"
 
 export class Map {
@@ -6,12 +6,14 @@ export class Map {
 	private constructor(private readonly tiles: readonly Tile.Base[][]) {
 		this.size = { width: tiles[0].length, height: tiles.length }
 	}
-	get(position: Position): Tile.Base | undefined {
-		return position.x >= 0 && position.x < this.size.width && position.y >= 0 && position.y < this.size.height
-			? this.tiles[position.y][position.x]
-			: undefined
+	get(position: Point): Tile.Base {
+		return this.tiles[wrap(position.y, this.size.height)][wrap(position.x, this.size.width)]
 	}
 	static load(data: Tile.Type[][]): Map {
 		return new Map(data.map(row => row.map(Tile.load)))
 	}
+}
+
+function wrap(value: number, size: number): number {
+	return value < 0 ? wrap(value + size, size) : value % size
 }

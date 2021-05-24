@@ -1,4 +1,18 @@
 :host {
 	display: block;
-	height: 256px;
+	width: 64px;
+	height: 64px;
+	position: relative;
 }
+:host > img {
+	width: 64px;
+	height: 64px;
+}
+:host > span {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-size: 150%;
+}
+

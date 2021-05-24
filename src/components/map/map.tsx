@@ -1,5 +1,5 @@
-import { Component, h, Prop } from "@stencil/core"
-import { Map, Position } from "../../model"
+import { Component, h, Host, Prop } from "@stencil/core"
+import { Bounds, Map, Point } from "../../model"
 
 @Component({
 	tag: "aron-map",
@@ -8,13 +8,12 @@ import { Map, Position } from "../../model"
 })
 export class AronMap {
 	@Prop() map: Map
-	@Prop() offset: Position
+	@Prop() scope: Bounds
 	render() {
 		const result: any[] = []
-		const viewport = this.map.size
-		for (let y = 0; y < viewport.height; y++)
-			for (let x = 0; x < viewport.width; x++)
-				result.push(<aron-tile map={this.map} position={this.offset.add(new Position(x, y))}></aron-tile>)
-		return result
+		for (let y = this.scope.top; y <= this.scope.bottom; y++)
+			for (let x = this.scope.left; x <= this.scope.right; x++)
+				result.push(<aron-tile map={this.map} position={new Point(x, y)}></aron-tile>)
+		return <Host style={{ width: ((this.scope.size.width + 1) * 64).toString() + "px" }}>{result}</Host>
 	}
 }

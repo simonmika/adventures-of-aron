@@ -5,20 +5,21 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Hero, Map, Position } from "./model";
+import { Bounds, Hero, Map, Point } from "./model";
 export namespace Components {
     interface AronGame {
     }
     interface AronHero {
         "hero": Hero;
+        "scope": Bounds;
     }
     interface AronMap {
         "map": Map;
-        "offset": Position;
+        "scope": Bounds;
     }
     interface AronTile {
         "map": Map;
-        "position": Position;
+        "position": Point;
     }
 }
 declare global {
@@ -58,14 +59,15 @@ declare namespace LocalJSX {
     }
     interface AronHero {
         "hero"?: Hero;
+        "scope"?: Bounds;
     }
     interface AronMap {
         "map"?: Map;
-        "offset"?: Position;
+        "scope"?: Bounds;
     }
     interface AronTile {
         "map"?: Map;
-        "position"?: Position;
+        "position"?: Point;
     }
     interface IntrinsicElements {
         "aron-game": AronGame;

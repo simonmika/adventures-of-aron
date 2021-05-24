@@ -1,4 +1,7 @@
 :host {
 	position: absolute;
-	transition: left .5s, top .5s;
+}
+:host > img {
+	width: 64px;
+	height: 64px;
 }

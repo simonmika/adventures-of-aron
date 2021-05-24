@@ -1,12 +1,12 @@
-import { Component, h, Listen, State } from "@stencil/core"
-import { Direction, Game, Position } from "../../model"
+import { Component, ComponentWillLoad, h, Host, Listen, State } from "@stencil/core"
+import { Bounds, Direction, Game, Point, Size } from "../../model"
 
 @Component({
 	tag: "aron-game",
 	styleUrl: "game.css",
 	scoped: true,
 })
-export class AronGame {
+export class AronGame implements ComponentWillLoad {
 	@State() game: Game = Game.create()
 	@Listen("keydown", { target: "window" })
 	onKeyDown(event: KeyboardEvent) {
@@ -28,11 +28,15 @@ export class AronGame {
 		if (direction)
 			this.game = this.game.move(direction)
 	}
+	componentWillLoad(): void {
+		this.game = this.game.setViewport(new Size(window.innerWidth, window.innerHeight))
+	}
 	render() {
-		console.log("game", this.game)
-		return [
-			<aron-map map={this.game.map} offset={new Position(0, 0)}></aron-map>,
-			<aron-hero hero={this.game.hero}></aron-hero>,
-		]
+		return (
+			<Host>
+				<aron-map map={this.game.map} scope={this.game.scope}></aron-map>
+				<aron-hero hero={this.game.hero} scope={this.game.scope}></aron-hero>
+			</Host>
+		)
 	}
 }

@@ -1,5 +1,5 @@
 import { Component, ComponentWillLoad, h, Host, Listen, State } from "@stencil/core"
-import { Bounds, Direction, Game, Point, Size } from "../../model"
+import { Direction, Game, Size, Map } from "../../model"
 
 @Component({
 	tag: "aron-game",
@@ -7,7 +7,25 @@ import { Bounds, Direction, Game, Point, Size } from "../../model"
 	scoped: true,
 })
 export class AronGame implements ComponentWillLoad {
-	@State() game: Game = Game.create()
+	@State() game: Game = Game.create(Map.load([
+		["rock", "rock", "rock", "rock", "rock", "rock", "rock", "rock", "rock"],
+		["rock", "grass", "grass", "grass", "grass", "grass", "grass", "rock", "rock"],
+		["rock", "grass", "grass", "grass", "grass", "grass", "grass", "rock", "rock"],
+		["rock", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "rock"],
+		["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+		["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+		["rock", "grass", "grass", "grass", "rock", "rock", "grass", "rock", "rock"],
+		["rock", "grass", "grass", "grass", "rock", "rock", "grass", "grass", "rock"],
+		["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+		["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+		["rock", "grass", "grass", "grass", "grass", "grass", "grass", "rock", "rock"],
+		["rock", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "rock"],
+		["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+		["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+		["rock", "rock", "rock", "grass", "grass", "grass", "grass", "rock", "rock"],
+		["rock", "rock", "rock", "grass", "grass", "grass", "grass", "rock", "rock"],
+		["rock", "rock", "rock", "rock", "rock", "rock", "rock", "rock", "rock"],
+	]))
 	@Listen("keydown", { target: "window" })
 	onKeyDown(event: KeyboardEvent) {
 		let direction: Direction | undefined

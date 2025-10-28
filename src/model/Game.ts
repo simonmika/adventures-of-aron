@@ -24,27 +24,7 @@ export class Game {
 		)
 		return new Game(this.map, scope, this.hero)
 	}
-	static create(): Game {
+	static create(world: Map): Game {
 		return new Game(world, new Bounds(new Point(0, 0), new Size(8, 4)), new Hero(new Point(3, 3)))
 	}
 }
-
-const world = Map.load([
-	["rock", "rock", "rock", "rock", "rock", "rock", "rock", "rock", "rock"],
-	["rock", "grass", "grass", "grass", "grass", "grass", "grass", "rock", "rock"],
-	["rock", "grass", "grass", "grass", "grass", "grass", "grass", "rock", "rock"],
-	["rock", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "rock"],
-	["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
-	["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
-	["rock", "grass", "grass", "grass", "rock", "rock", "grass", "rock", "rock"],
-	["rock", "grass", "grass", "grass", "rock", "rock", "grass", "grass", "rock"],
-	["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
-	["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
-	["rock", "grass", "grass", "grass", "grass", "grass", "grass", "rock", "rock"],
-	["rock", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "rock"],
-	["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
-	["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
-	["rock", "rock", "rock", "grass", "grass", "grass", "grass", "rock", "rock"],
-	["rock", "rock", "rock", "grass", "grass", "grass", "grass", "rock", "rock"],
-	["rock", "rock", "rock", "rock", "rock", "rock", "rock", "rock", "rock"],
-])

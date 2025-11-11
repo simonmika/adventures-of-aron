@@ -14,8 +14,22 @@
    id="svg8"
    inkscape:version="1.0.2 (394de47547, 2021-03-26)"
    sodipodi:docname="grass.svg">
-  <defs
-     id="defs2" />
+   <defs id="defs2">
+      <!-- Depth gradient for grass base -->
+      <linearGradient id="grassGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+         <stop offset="0%" stop-color="#9ae94a"/>
+         <stop offset="60%" stop-color="#7bd23a"/>
+         <stop offset="100%" stop-color="#5ba92e"/>
+      </linearGradient>
+      <!-- Fade edges for wind overlay to reduce seams between tiles -->
+      <radialGradient id="grassFade" cx="50%" cy="50%" r="75%">
+         <stop offset="65%" stop-color="white"/>
+         <stop offset="100%" stop-color="black"/>
+      </radialGradient>
+      <mask id="windMask">
+         <rect x="0" y="0" width="67.73333" height="67.73333" fill="url(#grassFade)"/>
+      </mask>
+   </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -54,7 +68,7 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#8ae234;stroke:none;stroke-width:4.99999"
+       style="fill:url(#grassGradient);stroke:none;stroke-width:4.99999"
        id="rect833"
        width="67.73333"
        height="67.73333"
@@ -370,9 +384,16 @@
        style="fill:#4e9a06;stroke:none;stroke-width:4.99999"
        id="path997"
        d="m 10.327646,3.756475 c 1.458262,4.6379066 2.491881,9.388814 3.406375,14.158812 0,0 1.072562,-0.57356 1.072562,-0.57356 v 0 C 13.805136,12.57658 12.720219,7.8311342 11.527541,3.1099807 c 0,0 -1.199895,0.6464943 -1.199895,0.6464943 z" />
-    <path
+      <path
        style="fill:#4e9a06;stroke:none;stroke-width:4.99999"
        id="path999"
        d="m 34.952651,25.200367 c 0.449347,2.433938 0.996953,4.848187 1.456695,7.280692 0.214308,1.163169 0.391306,2.332607 0.577308,3.50048 0,0 1.181338,-0.627491 1.181338,-0.627491 v 0 c -0.213942,-1.157124 -0.415184,-2.316485 -0.634807,-3.472574 -0.472027,-2.449119 -1.004773,-4.888439 -1.349256,-7.359653 0,0 -1.231278,0.678546 -1.231278,0.678546 z" />
+      <!-- Gentle wind sweep overlay -->
+      <g id="grass-wind" mask="url(#windMask)" opacity="0.18">
+         <path d="M2 18 Q16 14 34 16 T66 14" fill="none" stroke="#ffffff" stroke-width="0.9" stroke-linecap="round"/>
+         <path d="M0 30 Q14 28 30 29 T68 27" fill="none" stroke="#ffffff" stroke-width="0.7" stroke-linecap="round"/>
+         <path d="M4 44 Q20 40 40 42 T64 40" fill="none" stroke="#e6ffd6" stroke-width="0.8" stroke-linecap="round"/>
+         <animateTransform attributeName="transform" type="translate" values="-1 0; 1 0; -1 0" dur="7s" repeatCount="indefinite"/>
+      </g>
   </g>
 </svg>

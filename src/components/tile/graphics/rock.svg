@@ -14,8 +14,20 @@
    id="svg8"
    inkscape:version="1.0.2 (394de47547, 2021-03-26)"
    sodipodi:docname="rock.svg">
-  <defs
-     id="defs2" />
+   <defs id="defs2">
+      <!-- Soft sand gradient for base -->
+      <linearGradient id="sandGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+         <stop offset="0%" stop-color="#f3d9a8"/>
+         <stop offset="55%" stop-color="#e9c98b"/>
+         <stop offset="100%" stop-color="#d8b26b"/>
+      </linearGradient>
+      <!-- Subtle speckle pattern for natural grain (static, no animation) -->
+      <pattern id="sandSpeckle" width="4" height="4" patternUnits="userSpaceOnUse">
+         <circle cx="1" cy="1" r="0.25" fill="#a77c3a" opacity="0.18"/>
+         <circle cx="3" cy="2" r="0.2" fill="#7a5a28" opacity="0.15"/>
+         <circle cx="2.2" cy="3.2" r="0.18" fill="#a77c3a" opacity="0.12"/>
+      </pattern>
+   </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -54,12 +66,14 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#e9b96e;stroke:none;stroke-width:4.99999"
+       style="fill:url(#sandGradient);stroke:none;stroke-width:4.99999"
        id="rect833"
        width="67.73333"
        height="67.73333"
        x="0"
        y="0" />
+    <!-- Static grain overlay to add texture -->
+    <rect x="0" y="0" width="67.73333" height="67.73333" fill="url(#sandSpeckle)" opacity="0.35"/>
     <path
        sodipodi:type="star"
        style="fill:#c17d11;stroke:none;stroke-width:7.90415"

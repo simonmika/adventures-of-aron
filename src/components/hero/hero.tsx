@@ -1,6 +1,6 @@
 import { Component, h, Host, Prop } from "@stencil/core"
 import { Bounds, Hero, Point } from "../../model"
-import hero from "./hero.svg"
+import { graphics } from "./graphics"
 
 @Component({
 	tag: "aron-hero",
@@ -22,7 +22,7 @@ export class AronHero {
 					top: (position.y * 64).toString() + "px",
 					transition,
 				}}>
-				<img src={hero} />
+				<img src={graphics[this.hero.facing] || graphics.down} />
 			</Host>
 		)
 	}

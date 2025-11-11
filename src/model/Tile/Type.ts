@@ -1,1 +1,1 @@
-export type Type = "grass" | "rock" | "water"
+export type Type = "grass" | "rock" | "water" | "gravel"

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" version="1.1">
+	<defs>
+		<!-- Neutral gravel tone with symmetric gradient to avoid seams -->
+		<linearGradient id="gravelGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+			<stop offset="0%" stop-color="#8a8179" />
+			<stop offset="50%" stop-color="#9a9188" />
+			<stop offset="100%" stop-color="#8a8179" />
+		</linearGradient>
+		<!-- Subtle speckle pattern that tiles cleanly -->
+		<pattern id="gravelSpeckle" patternUnits="objectBoundingBox" width="0.125" height="0.125"
+			viewBox="0 0 4 4" preserveAspectRatio="none">
+			<rect width="4" height="4" fill="none" />
+			<circle cx="0.8" cy="0.9" r="0.28" fill="#6f6760" opacity="0.35" />
+			<circle cx="2.9" cy="1.9" r="0.25" fill="#b2aaa2" opacity="0.28" />
+			<circle cx="2.1" cy="3.1" r="0.22" fill="#6f6760" opacity="0.3" />
+			<circle cx="1.6" cy="2.2" r="0.18" fill="#4e4741" opacity="0.18" />
+		</pattern>
+	</defs>
+	<!-- Base fill -->
+	<rect x="0" y="0" width="64" height="64" fill="url(#gravelGradient)" />
+	<!-- Texture overlay -->
+	<rect x="0" y="0" width="64" height="64" fill="url(#gravelSpeckle)" opacity="0.55" />
+	<!-- Larger stones (kept away from edges to avoid seams) -->
+	<g opacity="0.45" fill="#7b726a">
+		<ellipse cx="18" cy="20" rx="3.8" ry="2.4" />
+		<ellipse cx="40" cy="14" rx="3.2" ry="2.0" />
+		<ellipse cx="30" cy="44" rx="4.2" ry="2.6" />
+		<ellipse cx="50" cy="36" rx="3.6" ry="2.2" />
+		<ellipse cx="16" cy="46" rx="3.0" ry="1.8" />
+	</g>
+	<!-- Highlights to suggest volume -->
+	<g opacity="0.28" fill="#bdb5ad">
+		<ellipse cx="19.4" cy="19.4" rx="1.8" ry="0.9" />
+		<ellipse cx="40.9" cy="13.6" rx="1.5" ry="0.7" />
+		<ellipse cx="31.2" cy="43.6" rx="2.0" ry="0.9" />
+		<ellipse cx="50.7" cy="35.5" rx="1.6" ry="0.7" />
+		<ellipse cx="16.9" cy="45.5" rx="1.3" ry="0.6" />
+	</g>
+</svg>

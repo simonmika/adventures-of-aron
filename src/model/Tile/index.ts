@@ -1,8 +1,8 @@
 import { Base, types } from "./Base"
 import { Grass } from "./Grass"
 import { Rock } from "./Rock"
-import { Water } from "./Water"
 import { Type } from "./Type"
+import { Water } from "./Water"
 
 export { Grass, Rock, Water, Base, Type }
 

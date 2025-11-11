@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Bounds, Hero, Map, Point } from "./model";
+export { Bounds, Hero, Map, Point } from "./model";
 export namespace Components {
     interface AronGame {
     }

@@ -5,8 +5,8 @@
 	position: absolute;
 }
 :host > img {
-	width: 64px;
-	height: 64px;
+	margin-left: -64px;
+	margin-top: -64px;
 }
 :host > span {
 	display: none;

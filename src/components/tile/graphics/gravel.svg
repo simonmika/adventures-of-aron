@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   width="64"
-   height="64"
-   viewBox="0 0 64 64"
+   width="192"
+   height="192"
+   viewBox="0 0 192 192"
    version="1.1"
    id="svg50"
    sodipodi:docname="gravel.svg"
@@ -22,8 +22,8 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="3.6875"
-     inkscape:cx="30.779661"
-     inkscape:cy="32.135593"
+     inkscape:cx="94.915254"
+     inkscape:cy="96.40678"
      inkscape:window-width="2560"
      inkscape:window-height="1403"
      inkscape:window-x="0"
@@ -35,10 +35,10 @@
     <!-- Neutral gravel tone with symmetric gradient to avoid seams -->
     <linearGradient
        id="gravelGradient"
-       x1="0%"
-       y1="0%"
-       x2="0%"
-       y2="100%">
+       x1="0"
+       y1="0"
+       x2="0"
+       y2="1">
       <stop
          offset="0%"
          stop-color="#8a8179"
@@ -96,82 +96,82 @@
     </pattern>
   </defs>
   <rect
-     style="fill:#b3ac7a;stroke-width:3;stroke-linejoin:round;fill-opacity:1"
+     style="fill:#b3ac7a;fill-opacity:1;stroke-width:3;stroke-linejoin:round"
      id="rect1390"
      width="64"
      height="64"
-     x="0"
-     y="0" />
+     x="64"
+     y="64" />
   <!-- Base fill -->
   <!-- Texture overlay -->
   <!-- Larger stones (kept away from edges to avoid seams) -->
   <ellipse
-     cx="18"
-     cy="20"
+     cx="82"
+     cy="84"
      rx="3.8"
      ry="2.4000001"
      id="ellipse26"
      style="opacity:0.45;fill:#7b726a" />
   <ellipse
-     cx="40"
-     cy="14"
+     cx="104"
+     cy="78"
      rx="3.2"
      ry="2"
      id="ellipse28"
      style="opacity:0.45;fill:#7b726a" />
   <ellipse
-     cx="30"
-     cy="44"
+     cx="94"
+     cy="108"
      rx="4.1999998"
      ry="2.5999999"
      id="ellipse30"
      style="opacity:0.45;fill:#7b726a" />
   <ellipse
-     cx="60"
-     cy="40"
+     cx="124"
+     cy="104"
      rx="3.5999999"
      ry="2.2"
      id="ellipse32"
      style="opacity:0.45;fill:#7b726a" />
   <ellipse
-     cx="16"
-     cy="56"
+     cx="80"
+     cy="120"
      rx="3"
      ry="1.8"
      id="ellipse34"
      style="opacity:0.45;fill:#7b726a" />
   <!-- Highlights to suggest volume -->
   <ellipse
-     cx="19.4"
-     cy="19.4"
+     cx="83.400002"
+     cy="83.400002"
      rx="1.8"
      ry="0.89999998"
      id="ellipse38"
      style="opacity:0.28;fill:#bdb5ad" />
   <ellipse
-     cx="40.900002"
-     cy="13.6"
+     cx="104.9"
+     cy="77.599998"
      rx="1.5"
      ry="0.69999999"
      id="ellipse40"
      style="opacity:0.28;fill:#bdb5ad" />
   <ellipse
-     cx="31.200001"
-     cy="43.599998"
+     cx="95.199997"
+     cy="107.6"
      rx="2"
      ry="0.89999998"
      id="ellipse42"
      style="opacity:0.28;fill:#bdb5ad" />
   <ellipse
-     cx="60.700001"
-     cy="39.5"
+     cx="124.7"
+     cy="103.5"
      rx="1.6"
      ry="0.69999999"
      id="ellipse44"
      style="opacity:0.28;fill:#bdb5ad" />
   <ellipse
-     cx="16.9"
-     cy="55.5"
+     cx="80.900002"
+     cy="119.5"
      rx="1.3"
      ry="0.60000002"
      id="ellipse46"

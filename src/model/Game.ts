@@ -11,10 +11,7 @@ export class Game {
 	move(direction: Direction): Game {
 		const hero = this.hero.move(direction)
 		const tile = this.map.get(hero.position)
-		const scope = this.scope.reduce(2).inside(hero.position)
-			? this.scope
-			: new Bounds(this.scope.leftTop.move(direction, this.scope.reduce(2).size), this.scope.size)
-		return tile?.walkable ? new Game(this.map, scope, hero) : this
+		return tile?.walkable ? new Game(this.map, this.scope, hero) : this
 	}
 	setViewport(viewport: Size): Game {
 		const scope = new Bounds(

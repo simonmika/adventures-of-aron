@@ -1,5 +1,5 @@
 import { Component, ComponentWillLoad, h, Host, Listen, State } from "@stencil/core"
-import { Direction, Game, Map, Size } from "../../model"
+import { model } from "../../model"
 
 @Component({
 	tag: "aron-game",
@@ -7,8 +7,8 @@ import { Direction, Game, Map, Size } from "../../model"
 	scoped: true,
 })
 export class AronGame implements ComponentWillLoad {
-	@State() game: Game = Game.create(
-		Map.load([
+	@State() game: model.Game = model.Game.create(
+		model.Map.load([
 			[
 				"forest",
 				"forest",
@@ -353,7 +353,7 @@ export class AronGame implements ComponentWillLoad {
 	)
 	@Listen("keydown", { target: "window" })
 	onKeyDown(event: KeyboardEvent) {
-		let direction: Direction | undefined
+		let direction: model.Direction | undefined
 		switch (event.key) {
 			case "ArrowLeft":
 				direction = "left"
@@ -371,7 +371,7 @@ export class AronGame implements ComponentWillLoad {
 		if (direction) this.game = this.game.move(direction)
 	}
 	componentWillLoad(): void {
-		this.game = this.game.setViewport(new Size(window.innerWidth, window.innerHeight))
+		this.game = this.game.setViewport(new model.Size(window.innerWidth, window.innerHeight))
 	}
 	render() {
 		return (

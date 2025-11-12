@@ -4,10 +4,10 @@ import { Point } from "../Point"
 
 export abstract class Base {
 	abstract type: Type
-	get variant(): `${Type}-U${Type}L${Type}D${Type}R${Type}` {
-		return `${this.type}-U${this.up?.type ?? this.type}L${this.left?.type ?? this.type}D${
+	get variant(): `${Type}-${Type}-${Type}-${Type}-${Type}` {
+		return `${this.type}-${this.up?.type ?? this.type}-${this.left?.type ?? this.type}-${
 			this.down?.type ?? this.type
-		}R${this.right?.type ?? this.type}` as `${Type}-U${Type}L${Type}D${Type}R${Type}`
+		}-${this.right?.type ?? this.type}`
 	}
 	get up(): Base | undefined {
 		return this.map.get(this.position.move("up"))

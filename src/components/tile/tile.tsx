@@ -1,5 +1,5 @@
 import { Component, h, Prop } from "@stencil/core"
-import { Map, Point } from "../../model"
+import { model } from "../../model"
 import { graphics } from "./graphics"
 
 @Component({
@@ -8,10 +8,10 @@ import { graphics } from "./graphics"
 	scoped: true,
 })
 export class AronTile {
-	@Prop() map: Map
-	@Prop() position: Point
+	@Prop() map: model.Map
+	@Prop() position: model.Point
 	render() {
 		const tile = this.map.get(this.position)
-		return tile ? [<img src={graphics[tile.type]} />, <span>{this.position.toString()}</span>] : []
+		return tile && <img src={graphics[tile.variant] ?? graphics[tile.type]} />
 	}
 }

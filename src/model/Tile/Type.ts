@@ -1,1 +1,5 @@
-export type Type = "grass" | "rock" | "water" | "gravel" | "forest"
+export type Type = (typeof Type.values)[number]
+
+export namespace Type {
+	export const values = ["grass", "rock", "water", "gravel", "forest"] as const
+}

@@ -1,5 +1,5 @@
 import { Component, h, Host, Prop } from "@stencil/core"
-import { Bounds, Hero, Point } from "../../model"
+import { model } from "../../model"
 import { graphics } from "./graphics"
 
 @Component({
@@ -8,9 +8,9 @@ import { graphics } from "./graphics"
 	scoped: true,
 })
 export class AronHero {
-	@Prop() hero: Hero
-	@Prop() scope: Bounds
-	previous = new Point(0, 0)
+	@Prop() hero: model.Hero
+	@Prop() scope: model.Bounds
+	previous = new model.Point(0, 0)
 	render() {
 		const position = this.hero.position.subtract(this.scope.leftTop)
 		const transition = position.subtract(this.previous).distance > 2 ? "none" : "left .5s, top .5s"

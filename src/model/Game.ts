@@ -27,3 +27,4 @@ export class Game {
 		return new Game(world, new Bounds(new Point(0, 0), new Size(8, 4)), new Hero(new Point(3, 3), "down"))
 	}
 }
+export namespace Game {}

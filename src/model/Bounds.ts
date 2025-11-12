@@ -25,3 +25,4 @@ export class Bounds {
 		)
 	}
 }
+export namespace Bounds {}

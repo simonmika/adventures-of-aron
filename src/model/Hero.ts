@@ -7,3 +7,4 @@ export class Hero {
 		return new Hero(this.position.move(direction), direction)
 	}
 }
+export namespace Hero {}

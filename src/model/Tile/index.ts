@@ -1,16 +1,22 @@
-import { Base, types } from "./Base"
-import { Grass } from "./Grass"
-import { Rock } from "./Rock"
-import { Type } from "./Type"
-import { Gravel } from "./Gravel"
-import { Forest } from "./Forest"
-import { Water } from "./Water"
-import { Point } from "../Point"
 import type { Map } from "../Map"
+import { Point } from "../Point"
+import { Base, types } from "./Base"
+import { Variant as _Variant } from "./Variant"
+import { Type as _Type } from "./Type"
+import { Rock } from "./Rock"
 
-export { Grass, Rock, Water, Gravel, Forest, Base, Type }
+import "./Grass"
+import "./Gravel"
+import "./Forest"
+import "./Water"
 
-export function load(type: Type, position: Point, map: Map): Base {
-	const t = types[type]
-	return t ? new t(position, map) : new Rock(position, map)
+export type Tile = Base
+
+export namespace Tile {
+	export import Variant = _Variant
+	export import Type = _Type
+
+	export function load(type: Type, position: Point, map: Map): Tile {
+		return new (types[type] ?? Rock)(position, map)
+	}
 }

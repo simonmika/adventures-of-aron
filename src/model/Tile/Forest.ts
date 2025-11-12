@@ -5,4 +5,5 @@ export class Forest extends Base {
 	readonly layer = "canopy"
 	readonly walkable = false
 }
+export namespace Forest {}
 register("forest", Forest)

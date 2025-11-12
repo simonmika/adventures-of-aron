@@ -7,12 +7,13 @@ import { Rock } from "./Rock"
 
 import "./Grass"
 import "./Gravel"
-import "./Forest"
+import { Forest as _Forest } from "./Forest"
 import "./Water"
 
 export type Tile = Base
 
 export namespace Tile {
+	export import Forest = _Forest
 	export import Type = _Type
 	export import Layer = _Layer
 

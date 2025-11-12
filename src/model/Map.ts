@@ -10,18 +10,16 @@ export class Map {
 		this.size = { width: this.tiles[0].length, height: this.tiles.length }
 	}
 	get(position: Point): Tile {
-		return this.tiles[wrap(position.y, this.size.height)][wrap(position.x, this.size.width)]
+		return this.tiles[position.y][position.x] ?? new Tile.Forest(position, this)
+	}
+	*slice(scope: Bounds): Generator<Tile> {
+		for (const point of scope.points()) yield this.get(point)
 	}
 	*layer(layer: Tile.Layer, scope: Bounds): Generator<Tile | undefined> {
-		for (const row of this.tiles.slice(scope.top, scope.bottom))
-			for (const tile of row.slice(scope.left, scope.right).filter(tile => tile.layer == layer)) yield tile
+		for (const tile of this.slice(scope)) if (tile.layer == layer) yield tile
 	}
 	static load(data: Tile.Type[][]): Map {
 		return new Map(data)
 	}
 }
 export namespace Map {}
-
-function wrap(value: number, size: number): number {
-	return value < 0 ? wrap(value + size, size) : value % size
-}

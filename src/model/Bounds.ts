@@ -24,5 +24,15 @@ export class Bounds {
 			new Size(this.size.width - 2 * border, this.size.height - 2 * border)
 		)
 	}
+	*points(step = 1): Generator<Point> {
+		let result = this.leftTop
+		while (result.y < this.bottom) {
+			while (result.x < this.right) {
+				yield result
+				result = result.move("right", step)
+			}
+			result = new Point(this.left, result.y + step)
+		}
+	}
 }
 export namespace Bounds {}

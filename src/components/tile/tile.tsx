@@ -1,4 +1,4 @@
-import { Component, h, Prop } from "@stencil/core"
+import { Component, h, Prop, Host } from "@stencil/core"
 import { model } from "../../model"
 import { graphics } from "./graphics"
 
@@ -8,10 +8,17 @@ import { graphics } from "./graphics"
 	scoped: true,
 })
 export class AronTile {
-	@Prop() map: model.Map
-	@Prop() position: model.Point
+	@Prop() tile: model.Tile
 	render() {
-		const tile = this.map.get(this.position)
-		return tile && <img src={graphics[tile.variant] ?? graphics[tile.type]} />
+		return (
+			<Host
+				style={{
+					left: (this.tile?.position.x * 64).toString() + "px",
+					top: (this.tile?.position.y * 64).toString() + "px",
+				}}>
+				<img src={graphics[this.tile.variant] ?? graphics[this.tile.type]} />
+				<span>{this.tile.position.toString()}</span>
+			</Host>
+		)
 	}
 }

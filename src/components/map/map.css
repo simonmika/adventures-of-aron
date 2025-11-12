@@ -1,6 +1,5 @@
 :host {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+	display: block;
+	position: relative;
 	transition: left .5s, top .5s;
 }

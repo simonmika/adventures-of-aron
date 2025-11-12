@@ -19,8 +19,7 @@ export namespace Components {
         "scope": model.Bounds;
     }
     interface AronTile {
-        "map": model.Map;
-        "position": model.Point;
+        "tile": model.Tile;
     }
 }
 declare global {
@@ -67,8 +66,7 @@ declare namespace LocalJSX {
         "scope"?: model.Bounds;
     }
     interface AronTile {
-        "map"?: model.Map;
-        "position"?: model.Point;
+        "tile"?: model.Tile;
     }
     interface IntrinsicElements {
         "aron-game": AronGame;

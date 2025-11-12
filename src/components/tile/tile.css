@@ -2,7 +2,7 @@
 	display: block;
 	width: 64px;
 	height: 64px;
-	position: relative;
+	position: absolute;
 }
 :host > img {
 	width: 64px;

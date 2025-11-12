@@ -376,8 +376,9 @@ export class AronGame implements ComponentWillLoad {
 	render() {
 		return (
 			<Host>
-				<aron-map map={this.game.map} scope={this.game.scope}></aron-map>
+				<aron-layer layer="ground" map={this.game.map} scope={this.game.scope}></aron-layer>
 				<aron-hero hero={this.game.hero} scope={this.game.scope}></aron-hero>
+				<aron-layer layer="canopy" map={this.game.map} scope={this.game.scope}></aron-layer>
 			</Host>
 		)
 	}

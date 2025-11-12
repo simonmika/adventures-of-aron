@@ -6,9 +6,8 @@ import water from "./water.svg"
 import gravel from "./gravel.svg"
 import forest from "./forest.svg"
 
-export const graphics: Partial<Record<model.Tile.Type | model.Tile.Variant, string>> = {
+export const graphics: Record<model.Tile.Type, string> = {
 	grass,
-	"grass-grass-grass-grass-grass": grass,
 	rock,
 	water,
 	gravel,

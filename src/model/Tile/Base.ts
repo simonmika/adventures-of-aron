@@ -1,14 +1,11 @@
 import { Type } from "./Type"
 import type { Map } from "../Map"
 import { Point } from "../Point"
+import { Layer } from "./Layer"
 
 export abstract class Base {
-	abstract type: Type
-	get variant(): `${Type}-${Type}-${Type}-${Type}-${Type}` {
-		return `${this.type}-${this.up?.type ?? this.type}-${this.left?.type ?? this.type}-${
-			this.down?.type ?? this.type
-		}-${this.right?.type ?? this.type}`
-	}
+	abstract readonly type: Type
+	abstract readonly layer: Layer
 	get up(): Base | undefined {
 		return this.map.get(this.position.move("up"))
 	}

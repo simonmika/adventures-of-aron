@@ -16,7 +16,7 @@ export class AronTile {
 					left: (this.tile?.position.x * 64).toString() + "px",
 					top: (this.tile?.position.y * 64).toString() + "px",
 				}}>
-				<img src={graphics[this.tile.variant] ?? graphics[this.tile.type]} />
+				<img src={graphics[this.tile.type]} />
 				<span>{this.tile.position.toString()}</span>
 			</Host>
 		)

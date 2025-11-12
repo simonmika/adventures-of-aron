@@ -12,13 +12,9 @@ export class Map {
 	get(position: Point): Tile {
 		return this.tiles[wrap(position.y, this.size.height)][wrap(position.x, this.size.width)]
 	}
-	*ground(scope: Bounds): Generator<Tile | undefined> {
+	*layer(layer: Tile.Layer, scope: Bounds): Generator<Tile | undefined> {
 		for (const row of this.tiles.slice(scope.top, scope.bottom))
-			for (const tile of row.slice(scope.left, scope.right)) yield tile.type != "forest" ? tile : undefined
-	}
-	*canopy(scope: Bounds): Generator<Tile | undefined> {
-		for (const row of this.tiles.slice(scope.top, scope.bottom))
-			for (const tile of row.slice(scope.left, scope.right)) yield tile.type == "forest" ? tile : undefined
+			for (const tile of row.slice(scope.left, scope.right).filter(tile => tile.layer == layer)) yield tile
 	}
 	static load(data: Tile.Type[][]): Map {
 		return new Map(data)

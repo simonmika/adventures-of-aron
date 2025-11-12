@@ -14,7 +14,8 @@ export namespace Components {
         "hero": model.Hero;
         "scope": model.Bounds;
     }
-    interface AronMap {
+    interface AronLayer {
+        "layer": model.Tile.Layer;
         "map": model.Map;
         "scope": model.Bounds;
     }
@@ -35,11 +36,11 @@ declare global {
         prototype: HTMLAronHeroElement;
         new (): HTMLAronHeroElement;
     };
-    interface HTMLAronMapElement extends Components.AronMap, HTMLStencilElement {
+    interface HTMLAronLayerElement extends Components.AronLayer, HTMLStencilElement {
     }
-    var HTMLAronMapElement: {
-        prototype: HTMLAronMapElement;
-        new (): HTMLAronMapElement;
+    var HTMLAronLayerElement: {
+        prototype: HTMLAronLayerElement;
+        new (): HTMLAronLayerElement;
     };
     interface HTMLAronTileElement extends Components.AronTile, HTMLStencilElement {
     }
@@ -50,7 +51,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "aron-game": HTMLAronGameElement;
         "aron-hero": HTMLAronHeroElement;
-        "aron-map": HTMLAronMapElement;
+        "aron-layer": HTMLAronLayerElement;
         "aron-tile": HTMLAronTileElement;
     }
 }
@@ -61,7 +62,8 @@ declare namespace LocalJSX {
         "hero"?: model.Hero;
         "scope"?: model.Bounds;
     }
-    interface AronMap {
+    interface AronLayer {
+        "layer"?: model.Tile.Layer;
         "map"?: model.Map;
         "scope"?: model.Bounds;
     }
@@ -71,7 +73,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "aron-game": AronGame;
         "aron-hero": AronHero;
-        "aron-map": AronMap;
+        "aron-layer": AronLayer;
         "aron-tile": AronTile;
     }
 }
@@ -81,7 +83,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "aron-game": LocalJSX.AronGame & JSXBase.HTMLAttributes<HTMLAronGameElement>;
             "aron-hero": LocalJSX.AronHero & JSXBase.HTMLAttributes<HTMLAronHeroElement>;
-            "aron-map": LocalJSX.AronMap & JSXBase.HTMLAttributes<HTMLAronMapElement>;
+            "aron-layer": LocalJSX.AronLayer & JSXBase.HTMLAttributes<HTMLAronLayerElement>;
             "aron-tile": LocalJSX.AronTile & JSXBase.HTMLAttributes<HTMLAronTileElement>;
         }
     }
